@@ -19,6 +19,8 @@ public class Main {
         int goalSateColumn = 3;
         int finalState = findGoal(map, goalStateRow, goalSateColumn);
         Node node = new Node();
+
+        // Iterate through map
         for(int row = 0 ; row < map.length ; row++){
             for(int column = 0 ; column < map[row].length; column++){
                 System.out.print(String.format("%10s", map[row][column]));
@@ -26,9 +28,10 @@ public class Main {
             }
             System.out.println("");
         }
-        int x = 4; // row
+        int x = 3; // row
         int y = 5; // column
         System.out.println("Get north neighbor: " + node.getNorthNeighbor(map, x, y));
+        System.out.println("Get south neighbor: " + node.getSouthNeighbor(map, x, y));
         System.out.println("Start state is: " + startState + " and is located (" + startStateRow + ", " + startStateColumn + ")");
         System.out.println("Goal state is: " + finalState + " and is located (" + goalStateRow + ", " + goalSateColumn + ")");
     }
