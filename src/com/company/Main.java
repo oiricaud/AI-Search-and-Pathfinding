@@ -26,8 +26,8 @@ public class Main {
             }
             System.out.println("");
         }
-        int x = 5;
-        int y = 0;
+        int x = 4; // row
+        int y = 5; // column
         System.out.println("Get north neighbor: " + node.getNorthNeighbor(map, x, y));
         System.out.println("Start state is: " + startState + " and is located (" + startStateRow + ", " + startStateColumn + ")");
         System.out.println("Goal state is: " + finalState + " and is located (" + goalStateRow + ", " + goalSateColumn + ")");
