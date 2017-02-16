@@ -6,12 +6,50 @@ public class Main {
     private int y;
 
     public static void main(String[] args) {
-	// write your code here
-        readMapFile();
+
+        int map[][] = readMapFile(); // should return the coordinates here
+
+        //Given
+        int startStateRow = 1;
+        int startStateColumn = 2;
+        int startState = findKey(map, startStateRow, startStateColumn);
+
+        //Given
+        int goalStateRow = 4;
+        int goalSateColumn = 3;
+        int finalState = findGoal(map, goalStateRow, goalSateColumn);
+        Node node = new Node();
+        for(int row = 0 ; row < map.length ; row++){
+            for(int column = 0 ; column < map[row].length; column++){
+                System.out.print(String.format("%10s", map[row][column]));
+                node = new Node(map, row, column);
+            }
+            System.out.println("");
+        }
+        int x = 5;
+        int y = 0;
+        System.out.println("Get north neighbor: " + node.getNorthNeighbor(map, x, y));
+        System.out.println("Start state is: " + startState + " and is located (" + startStateRow + ", " + startStateColumn + ")");
+        System.out.println("Goal state is: " + finalState + " and is located (" + goalStateRow + ", " + goalSateColumn + ")");
     }
 
-    private static void readMapFile() {
+    private static int findGoal(int[][] map, int goalStateRow, int goalSateColumn) {
+        return map[goalSateColumn][goalStateRow];
+    }
 
+    private static int findKey(int[][] map, int keyRow, int keyColumn) {
+        return map[keyColumn][keyRow];
+    }
+
+    private static int[][] readMapFile() {
+        return new int [][]{
+                // Columns
+                {2, 4, 2, 1, 4, 5, 2}, // Row 1
+                {0, 1, 2, 3, 5, 3, 1}, // Row 2
+                {2, 0, 4, 4, 1, 2, 4},
+                {2, 5, 5, 3, 2, 0, 1},
+                {4, 3, 3, 2, 1, 0, 1}
+        };
     }
 
     /**

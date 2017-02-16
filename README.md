@@ -35,6 +35,7 @@ example	of	the	map	format.
 
 	5 7  
 	1 2  
+	4 3
 	2 4 2 1 4 5 2 
 	0 1 2 3 5 3 1
 	2 0 4 4 1 2 4
