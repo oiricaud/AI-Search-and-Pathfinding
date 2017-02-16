@@ -12,14 +12,6 @@ Assignment
 	and see the benfits of heuristic search. You will experiment with a basic formulation 
 	of general pathfinding problem.
 
-DUE:	Friday,	Feb	17 at	11:59	PM
-Objective:	This	assignment	will	allow	you	to	practice	some	of	the	basic	search	
-methods	used	for	problem	solving	in	artificial	intelligence,	and	to	see	the	benefits	of	
-heuristic	search.	You will	experiment	with	a	basic formulation	of	the	general	
-pathfinding	problem.	
-Pathfinding
-
-
 Pathfinding	is	a	common	problem	that	artificial	agents	must	solve,	including
 mapping	services,	artificial	vehicles, AIs	in	real-time	strategy	games, and	robots	that	
 must	navigate	in	the	physical	world.	For	this	assignment	we	will	focus	on	simplified	
@@ -41,19 +33,19 @@ required	to	move	to	the	given	square,	with 1	being	the	lowest	cost	and	5 being	t
 highest.	 There	is	no	cost	for	moving	to	the	starting	location. The	following	is	an	
 example	of	the	map	format.	
 
-5	7
-1	2
-4	3
-2	4	2	1	4	5 2
-0	1	2	3	5	3 1
-2	0	4	4	1	2 4
-2	5	5 3	2	0	1
-4	3	3	2	1	0	1
+	5 7  
+	1 2  
+	2 4 2 1 4 5 2 
+	0 1 2 3 5 3 1
+	2 0 4 4 1 2 4
+	2 5 5 3 2 0 1
+	4 3 3 2 1 0 1 
 
 ###### Search	Algorithms
 
 You	will	implement	and	compare	three	of	the	search	algorithms	discussed	in	class	
 and	in	the	book:
+
 1) Breadth-first	search
 2) Iterative	deepening	search
 3) A*	search
