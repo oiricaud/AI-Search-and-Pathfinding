@@ -7,7 +7,10 @@ Search	and	Pathfinding
 Assignment
 ======
 
-	Due: Friday, Feb 17 at 11:59 PM. Objective: This assignment will allow you to practice some of the basic search methods used for problem solving in artificial intelligence, and see the benfits of heuristic search. You will experiment with a basic formulation of general pathfinding problem.
+	Due: Friday, Feb 17 at 11:59 PM. Objective: This assignment will allow you to practice 
+	some of the basic search methods used for problem solving in artificial intelligence, 
+	and see the benfits of heuristic search. You will experiment with a basic formulation 
+	of general pathfinding problem.
 
 DUE:	Friday,	Feb	17 at	11:59	PM
 Objective:	This	assignment	will	allow	you	to	practice	some	of	the	basic	search	
