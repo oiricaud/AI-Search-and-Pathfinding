@@ -1,6 +1,9 @@
-CS	4320/5314
-Homework	Assignment	#1
+CS	4320/5314: Artificial Intelligence 
+======
+
+###### Homework	Assignment	#1
 Search	and	Pathfinding
+
 DUE:	Friday,	Feb	17 at	11:59	PM
 Objective:	This	assignment	will	allow	you	to	practice	some	of	the	basic	search	
 methods	used	for	problem	solving	in	artificial	intelligence,	and	to	see	the	benefits	of	
