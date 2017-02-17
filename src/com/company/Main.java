@@ -9,20 +9,16 @@ public class Main {
         int map[][] = readMapFile(); // should return the coordinates here
 
         //Given
-        int startStateRow = 1;
-        int startStateColumn = 2;
         int[] startStateCoordinates = new int[2];
-        startStateCoordinates[0] = 2;
-        startStateCoordinates[1] = 1;
-        int startState = findKey(map, startStateRow, startStateColumn);
+        startStateCoordinates[0] = 1; //Column
+        startStateCoordinates[1] = 2; // Row
+        //int startState = findKey(map, startStateRow, startStateColumn);
 
         //Given
-        int goalStateRow = 4;
-        int goalSateColumn = 3;
         int[] goalStateCoordinates = new int[2];
-        goalStateCoordinates[0] = 3;
-        goalStateCoordinates[1] = 1;
-        int finalState = findGoal(map, goalStateRow, goalSateColumn);
+        goalStateCoordinates[0] = 1; // Column
+        goalStateCoordinates[1] = 1; // Row
+       // int finalState = findGoal(map, goalStateRow, goalSateColumn);
 
         Node node = new Node();
 

@@ -28,11 +28,20 @@ public class BreadthFirstSearch {
             {0, 0, 0, 0, 0, 0, 0}
     };
 
+    int[][] finalPlaces= new int[][]{
+            // Columns
+            {1, 1, 1, 1, 1, 1, 1}, // Row 1
+            {1, 1, 1, 1, 1, 1, 1}, // Row 2
+            {1, 1, 1, 1, 1, 1, 1},
+            {1, 1, 1, 1, 1, 1, 1},
+            {1, 1, 1, 1, 1, 1, 1}
+    };
+
     public BreadthFirstSearch(Node node, int[][] map, int[] startStateCoordinates, int[] goalStateCoordinates) {
 
         // START COORDINATES
-        int rowStart = startStateCoordinates[0];
-        int columnStart = startStateCoordinates[1];
+        int rowStart = startStateCoordinates[1];
+        int columnStart = startStateCoordinates[0];
 
         // GOAL COORDINATES
         int rowGoal = goalStateCoordinates[0];
@@ -41,8 +50,8 @@ public class BreadthFirstSearch {
         int currRow;
         int currColumn;
 
-        System.out.println("Starting state (x,y) = (" + rowStart + "," + columnStart + ")");
-        System.out.println("Goal state (x,y) = (" + rowGoal + "," + columnGoal + ")");
+        System.out.println("Starting state (x,y) = (" + rowStart + "," + columnStart + ") = " + (node.getValueAtCoordinats(map, rowStart, columnStart)));
+        System.out.println("Goal state (x,y) = (" + rowGoal + "," + columnGoal + ") = " + (node.getValueAtCoordinats(map, rowGoal, columnGoal)));
 
         System.out.println("Get north neighbor: " + node.getNorthNeighbor(map, rowStart, columnStart));
         System.out.println("Get south neighbor: " + node.getSouthNeighbor(map, rowStart, columnStart));
@@ -61,39 +70,69 @@ public class BreadthFirstSearch {
 
         Node curr = new Node();
 
-        // PUSH FIRST ELEMENT OF QUEUE
         currRow = rowStart;
         currColumn = columnStart;
         int currValue = node.getValueAtCoordinats(map, currRow, currColumn);
         queue.add(currValue); // Add first node to the queue
         placesYouHaveBeen[rowStart][columnStart] = 1;
         Map<Integer, String> sortCoordinates_ = node.sortCoordinates(map, rowStart, columnStart);
-        System.out.println("Sorted coordinates: ");
+        System.out.println("\n **** Sorted coordinates: ****");
         Set set = sortCoordinates_.entrySet();
         Iterator iterator = set.iterator();
 
-        while (iterator.hasNext()) {
-            Map.Entry me = (Map.Entry) iterator.next();
-            System.out.print(me.getKey() + ": ");
-            System.out.println(me.getValue());
-            queue.add((Integer) me.getKey());
-            if(me.getValue() == "north") {
-                placesYouHaveBeen[rowStart-1][columnStart] = 1;
-            }
-            if(me.getValue() == "south") {
-                placesYouHaveBeen[rowStart+1][columnStart] = 1;
-            }
-            if(me.getValue() == "west") {
-                placesYouHaveBeen[rowStart][columnStart-1] = 1;
-            }
-            if(me.getValue() == "east") {
-                placesYouHaveBeen[rowStart][columnStart+1] = 1;
-            }
-            queue.remove(); // remove the head
-        }
-        placesYouHaveBeenPrintNice(placesYouHaveBeen);
-    }
+        while(!queue.isEmpty()) {
+            while (iterator.hasNext()) {
 
+                Map.Entry me = (Map.Entry) iterator.next();
+                System.out.print(me.getKey() + ": ");
+                System.out.println(me.getValue());
+                queue.add((Integer) me.getKey());
+                if (me.getValue() == "north") {
+                    placesYouHaveBeen[rowStart - 1][columnStart] = 1;
+                    if((rowGoal == rowStart-1) && (columnGoal == columnStart)){
+                        System.out.println("We found the goal! at (" + rowGoal + ", " + columnGoal + ")");
+                        return;
+                    }
+                }
+                if (me.getValue() == "south") {
+                    placesYouHaveBeen[rowStart + 1][columnStart] = 1;
+                    if((rowGoal == rowStart+1) && (columnGoal == columnStart)){
+                        System.out.println("We found the goal! at (" + rowGoal + ", " + columnGoal + ")");
+                        return;
+                    }
+                }
+                if (me.getValue() == "west") {
+                    placesYouHaveBeen[rowStart][columnStart - 1] = 1;
+                    if((rowGoal == rowStart) && (columnGoal == columnStart-1)){
+                        System.out.println("We found the goal! at (" + rowGoal + ", " + columnGoal + ")");
+                        return;
+                    }
+                }
+                if (me.getValue() == "east") {
+                    placesYouHaveBeen[rowStart][columnStart + 1] = 1;
+                    if((rowGoal == rowStart) && (columnGoal == columnStart+1)){
+                        System.out.println("We found the goal! at (" + rowGoal + ", " + columnGoal + ")");
+                        return;
+                    }
+                }
+            }
+            System.out.println("");
+            queue.remove(); // remove the head
+            placesYouHaveBeenPrintNice(placesYouHaveBeen);
+        }
+    }
+    private boolean checkNodesBeenMarked(){
+        for(int row = 0 ; row < placesYouHaveBeen.length ; row++){
+            for(int column = 0 ; column < placesYouHaveBeen[row].length; column++){
+                System.out.print(String.format("%10s", placesYouHaveBeen[row][column]));
+                if(placesYouHaveBeen[row][column] == 1){
+                    return true;
+                }
+            }
+            System.out.println("");
+        }
+        return false;
+    }
     private void placesYouHaveBeenPrintNice(int[][] placesYouHaveBeen) {
         // Iterate through map
         for(int row = 0 ; row < placesYouHaveBeen.length ; row++){

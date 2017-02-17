@@ -38,21 +38,11 @@ public class Node {
     }
 
     public Map<Integer, String> sortCoordinates(int[][] finalMap, int x, int y) {
-
         HashMap<Integer, String> coordinates = new HashMap<Integer, String>();
         coordinates.put(getNorthNeighbor(finalMap, x, y), "north");
         coordinates.put(getSouthNeighbor(finalMap, x, y), "south");
         coordinates.put(getWestNeighbor(finalMap, x, y), "west");
         coordinates.put(getEastNeighbor(finalMap, x, y), "east");
-        Map<Integer, String> map = new TreeMap<Integer, String>(coordinates);
-       // System.out.println("After Sorting:");
-        Set set = map.entrySet();
-        Iterator iterator = set.iterator();
-        while(iterator.hasNext()) {
-            Map.Entry me = (Map.Entry)iterator.next();
-       //     System.out.print(me.getKey() + ": ");
-       //     System.out.println(me.getValue());
-        }
         return coordinates;
     }
 
