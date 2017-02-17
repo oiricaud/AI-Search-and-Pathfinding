@@ -30,7 +30,8 @@ public class Main {
         // Change x & y to find different neighbors
         int x = 2;
         int y = 2;
-        findMeNeighbors(node, map, x, y);
+        int [] allNeighbors = findMeNeighbors(node, map, x, y);
+        BreadthFirstSearch bfs = new BreadthFirstSearch(allNeighbors);
 
         System.out.println("Start state is: " + startState + " and is located (" + startStateRow + ", " + startStateColumn + ")");
         System.out.println("Goal state is: " + finalState + " and is located (" + goalStateRow + ", " + goalSateColumn + ")");
@@ -42,12 +43,19 @@ public class Main {
      * @param x represents the rows
      * @param y represents the columns
      */
-    private static void findMeNeighbors(Node node, int[][] map, int x, int y) {
+    private static int[] findMeNeighbors(Node node, int[][] map, int x, int y) {
+        int [] neighbors = new int[3]; // [0] = North, [1] = South, [2] = West, [3] = East
+        neighbors[0] = node.getNorthNeighbor(map, x, y);
+        neighbors[1] = node.getSouthNeighbor(map, x, y);
+        neighbors[2] = node.getWestNeighbor(map, x, y);
+        neighbors[3] = node.getEastNeighbor(map, x, y);
+        return neighbors;
+        /* UNCOMMENT FOR DEBUG
         System.out.println("Get north neighbor: " + node.getNorthNeighbor(map, x, y));
         System.out.println("Get south neighbor: " + node.getSouthNeighbor(map, x, y));
         System.out.println("Get west neighbor: " + node.getWestNeighbor(map, x, y));
         System.out.println("Get east neighbor: " + node.getEastNeighbor(map, x, y));
-
+        */
     }
 
     private static int findGoal(int[][] map, int goalStateRow, int goalSateColumn) {

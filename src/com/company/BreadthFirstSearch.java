@@ -22,4 +22,7 @@ public class BreadthFirstSearch {
         queue.add(node);
         System.out.println("queue:" + queue.toString());
     }
+
+    public BreadthFirstSearch(int[] allNeighbors) {
+    }
 }
