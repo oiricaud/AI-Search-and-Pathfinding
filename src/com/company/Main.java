@@ -1,7 +1,6 @@
 package com.company;
 
 public class Main {
-    private int dimensions; // First line
     private int x;
     private int y;
 
@@ -28,15 +27,27 @@ public class Main {
             }
             System.out.println("");
         }
-        int x = 2; // row
-        int y = 2; // column
+        // Change x & y to find different neighbors
+        int x = 2;
+        int y = 2;
+        findMeNeighbors(node, map, x, y);
+
+        System.out.println("Start state is: " + startState + " and is located (" + startStateRow + ", " + startStateColumn + ")");
+        System.out.println("Goal state is: " + finalState + " and is located (" + goalStateRow + ", " + goalSateColumn + ")");
+    }
+
+    /**
+     * @param node is the current node we are in. We find the north, south, west and east neighbors based on this node.
+     * @param map is the map of all nodes.
+     * @param x represents the rows
+     * @param y represents the columns
+     */
+    private static void findMeNeighbors(Node node, int[][] map, int x, int y) {
         System.out.println("Get north neighbor: " + node.getNorthNeighbor(map, x, y));
         System.out.println("Get south neighbor: " + node.getSouthNeighbor(map, x, y));
         System.out.println("Get west neighbor: " + node.getWestNeighbor(map, x, y));
         System.out.println("Get east neighbor: " + node.getEastNeighbor(map, x, y));
 
-        System.out.println("Start state is: " + startState + " and is located (" + startStateRow + ", " + startStateColumn + ")");
-        System.out.println("Goal state is: " + finalState + " and is located (" + goalStateRow + ", " + goalSateColumn + ")");
     }
 
     private static int findGoal(int[][] map, int goalStateRow, int goalSateColumn) {
