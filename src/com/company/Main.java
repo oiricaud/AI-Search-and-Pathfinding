@@ -28,10 +28,13 @@ public class Main {
             }
             System.out.println("");
         }
-        int x = 3; // row
-        int y = 5; // column
+        int x = 2; // row
+        int y = 2; // column
         System.out.println("Get north neighbor: " + node.getNorthNeighbor(map, x, y));
         System.out.println("Get south neighbor: " + node.getSouthNeighbor(map, x, y));
+        System.out.println("Get west neighbor: " + node.getWestNeighbor(map, x, y));
+        System.out.println("Get east neighbor: " + node.getEastNeighbor(map, x, y));
+
         System.out.println("Start state is: " + startState + " and is located (" + startStateRow + ", " + startStateColumn + ")");
         System.out.println("Goal state is: " + finalState + " and is located (" + goalStateRow + ", " + goalSateColumn + ")");
     }
